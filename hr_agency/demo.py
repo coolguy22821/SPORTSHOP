@@ -1,4 +1,4 @@
-"""Демонстрация объектной модели ПК «Кадровое агентство»: создание объектов и их использование."""
+﻿"""Демонстрация объектной модели ПК «Кадровое агентство»: создание объектов и их использование."""
 import sys
 from pathlib import Path
 
@@ -7,7 +7,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from hr_agency.agency import Agency, Applicant, Employer, Role, User, Vacancy  # noqa: E402
 
 agency = Agency("Кадровое агентство «Старт»")
-admin = agency.add_user(User(1, "admin", "admin123", Role.ADMIN, "Лаптев Василий Иванович"))
+admin = agency.add_user(User(1, "admin", "admin123", Role.ADMIN, "Исаев Евгений Александрович"))
 rec = agency.add_user(User(2, "petrova", "rec2026!", Role.RECRUITER, "Петрова Анна Сергеевна"))
 head = agency.add_user(User(3, "director", "boss2026", Role.HEAD, "Орлов Игорь Петрович"))
 
@@ -67,3 +67,4 @@ path = agency.export_selections_csv(Path(__file__).resolve().parent / "selection
 print(f"Подборки выгружены в {path.name}:")
 print(path.read_text(encoding="utf-8").strip())
 print("\nЖурнал:", *agency.log, sep="\n  ")
+

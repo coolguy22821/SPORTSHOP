@@ -1,4 +1,4 @@
-# 18. Руководство пользователя
+﻿# 18. Руководство пользователя
 
 **СпортТовары — система управления магазином**, версия 1.0.
 
@@ -9,7 +9,7 @@
 ## 1. Перед началом работы
 
 1. Установите Python 3.10 или новее и проверьте версию: `python --version`.
-2. Получите программу: `git clone https://github.com/reflektpro/SportShop.git`, затем `cd SportShop`.
+2. Получите программу: `git clone https://github.com/coolguy22821/SPORTSHOP.git`, затем `cd SportShop`.
 3. Все команды выполняются из папки `SportShop`.
 
 Общий вид команды:
@@ -170,8 +170,8 @@ $ python main.py --data demo_data cart show
 склада (`products.json`), добавляет заказ в `orders.json` и очищает корзину.
 
 ```text
-$ python main.py --data demo_data checkout --client "Лаптев В.И."
-Заказ №1 от 2026-10-09 09:38, клиент: Лаптев В.И.
+$ python main.py --data demo_data checkout --client "Исаев Е.А."
+Заказ №1 от 2026-10-09 09:38, клиент: Лсаев В.И.
   Кроссовки RunFast (размер 40) × 2 = 17980 руб.
   Шорты Training (размер M) × 1 = 2490 руб.
   Итого: 20470 руб.
@@ -220,7 +220,7 @@ $ python main.py --data demo_data analytics
 ```text
 $ python main.py --data demo_data orders --export demo_data/orders_backup.json
 Загружено заказов из orders.json: 2
-Заказ №1 от 2026-10-09 09:38, клиент: Лаптев В.И.
+Заказ №1 от 2026-10-09 09:38, клиент: Исаев Е.А.
   Кроссовки RunFast (размер 40) × 2 = 17980 руб.
   Шорты Training (размер M) × 1 = 2490 руб.
   Итого: 20470 руб.
@@ -230,7 +230,7 @@ $ python main.py --data demo_data orders --export demo_data/orders_backup.json
 Заказы сохранены в demo_data/orders_backup.json
 $ python main.py --data demo_data orders --file demo_data/orders_backup.json
 Загружено заказов из orders_backup.json: 2
-Заказ №1 от 2026-10-09 09:38, клиент: Лаптев В.И.
+Заказ №1 от 2026-10-09 09:38, клиент: Исаев Е.А.
   Кроссовки RunFast (размер 40) × 2 = 17980 руб.
   Шорты Training (размер M) × 1 = 2490 руб.
   Итого: 20470 руб.
@@ -260,7 +260,7 @@ $ python main.py
 [+] «Мяч Pro Match» (размер 5) добавлен в корзину
 [+] «Шорты Training» (размер M) добавлен в корзину
 Сумма корзины: 27940 руб.
-Заказ №1 от 2026-10-09 09:38, клиент: Лаптев В.И.
+Заказ №1 от 2026-10-09 09:38, клиент: Исаев Е.А.
   Кроссовки RunFast (размер 40) × 2 = 17980 руб.
   Мяч Pro Match (размер 5) × 1 = 2490 руб.
   Шорты Training (размер M) × 3 = 7470 руб.
@@ -279,3 +279,5 @@ $ python main.py
 | `Заказ не оформлен: Корзина пуста` | корзина пуста | добавьте товары командой `cart add` |
 | `min_price не может быть больше max_price` | перепутаны границы цены | поменяйте значения местами |
 | `Не найден файл каталога …` | неверная папка `--data` | проверьте путь, в папке должен быть `products.json` |
+
+

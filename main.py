@@ -1,4 +1,4 @@
-"""Точка входа магазина «СпортТовары».
+﻿"""Точка входа магазина «СпортТовары».
 
 Без аргументов запускается демонстрация работы всех модулей (её использует build.py).
 С аргументами работает как консольное приложение, например:
@@ -48,7 +48,7 @@ def demo() -> None:
         print(("[+] " if ok else "[!] ") + message)
     print(f"Сумма корзины: {cart_total(cart)} руб.")
 
-    order = create_order(cart, "Лаптев В.И.", products)
+    order = create_order(cart, "Исаев Е.А.", products)
     print_order(order)
     save_orders([order], ORDERS_FILE)
     orders = load_orders(ORDERS_FILE)
@@ -273,3 +273,4 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+

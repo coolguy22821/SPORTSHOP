@@ -1,6 +1,6 @@
-# SportShop — Система управления магазином
+﻿# SportShop — Система управления магазином
 
-[![version](https://img.shields.io/badge/version-1.0-blue)](https://github.com/reflektpro/SportShop/releases/tag/v1.0)
+[![version](https://img.shields.io/badge/version-1.0-blue)](https://github.com/coolguy22821/SPORTSHOP/releases/tag/v1.0)
 ![python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![tests](https://img.shields.io/badge/tests-52%20passed-brightgreen)
 
@@ -147,14 +147,14 @@ python build.py
 | :-: | :--- | :--- | :--- |
 | **1** | Границы ОС и нефункциональные требования (StudyOS); анализ предметной области «Кадровое агентство» | [my_os/docs/01_OS_Scope_and_NFR.md](my_os/docs/01_OS_Scope_and_NFR.md), [hr_agency/docs/01_Domain_Analysis.md](hr_agency/docs/01_Domain_Analysis.md) | [Перейти](my_os/) |
 | **2** | Архитектура и API ядра (StudyOS), ТЗ «Кадровое агентство» | [my_os/docs/02_OS_Architecture.md](my_os/docs/02_OS_Architecture.md), [hr_agency/docs/02_Technical_Specification.md](hr_agency/docs/02_Technical_Specification.md) | [Перейти](my_os/) |
-| **3** | Построение архитектуры программного средства (эскизный и технический проект) | [hr_agency/docs/03_Sketch_Project.md](hr_agency/docs/03_Sketch_Project.md), [03_Technical_Project.md](hr_agency/docs/03_Technical_Project.md) | [practice-3](https://github.com/reflektpro/SportShop/tree/practice-3) |
-| **4** | Объектно-ориентированное проектирование программных модулей | [hr_agency/agency.py](hr_agency/agency.py), [hr_agency/demo.py](hr_agency/demo.py), тесты | [practice-4](https://github.com/reflektpro/SportShop/tree/practice-4) |
-| **5** | Основы разработки в Python в среде VS Code, структуры данных «Чудо Обувь» | [ChudoObuv/main.py](ChudoObuv/main.py), [ChudoObuv/README.md](ChudoObuv/README.md) | [practice-5](https://github.com/reflektpro/SportShop/tree/practice-5) |
-| **6** | Управление разработкой по Agile/Scrum/Kanban: Backlog, Спринты, Стендапы, Ретроспектива | Проектная документация в папке [docs/03–07](docs) | [practice-6](https://github.com/reflektpro/SportShop/tree/practice-6) |
-| **7** | Работа в команде по Git Flow, разрешение конфликтов слияния, Pull Request, Hotfix | Проектная документация в папке [docs/08–12](docs) | [practice-7](https://github.com/reflektpro/SportShop/tree/practice-7) |
-| **8** | Способы отладки ПО и модульное тестирование (unittest) | [docs/13_Debugging.md](docs/13_Debugging.md), [docs/14_Test_Report.md](docs/14_Test_Report.md) | [practice-8](https://github.com/reflektpro/SportShop/tree/practice-8) |
-| **9** | Интеграция разработанных программных модулей и сборка | Компоненты [src/](src), [tests/test_integration.py](tests/test_integration.py), [build.py](build.py) | [practice-9](https://github.com/reflektpro/SportShop/tree/practice-9) |
-| **10**| Документирование и выпуск финального релиза программного продукта | Корневые файлы, [docs/17–21](docs), [CHANGELOG.md](CHANGELOG.md) | [Релиз v1.0](https://github.com/reflektpro/SportShop/releases/tag/v1.0) |
+| **3** | Построение архитектуры программного средства (эскизный и технический проект) | [hr_agency/docs/03_Sketch_Project.md](hr_agency/docs/03_Sketch_Project.md), [03_Technical_Project.md](hr_agency/docs/03_Technical_Project.md) | [practice-3](https://github.com/coolguy22821/SPORTSHOP/tree/practice-3) |
+| **4** | Объектно-ориентированное проектирование программных модулей | [hr_agency/agency.py](hr_agency/agency.py), [hr_agency/demo.py](hr_agency/demo.py), тесты | [practice-4](https://github.com/coolguy22821/SPORTSHOP/tree/practice-4) |
+| **5** | Основы разработки в Python в среде VS Code, структуры данных «Чудо Обувь» | [ChudoObuv/main.py](ChudoObuv/main.py), [ChudoObuv/README.md](ChudoObuv/README.md) | [practice-5](https://github.com/coolguy22821/SPORTSHOP/tree/practice-5) |
+| **6** | Управление разработкой по Agile/Scrum/Kanban: Backlog, Спринты, Стендапы, Ретроспектива | Проектная документация в папке [docs/03–07](docs) | [practice-6](https://github.com/coolguy22821/SPORTSHOP/tree/practice-6) |
+| **7** | Работа в команде по Git Flow, разрешение конфликтов слияния, Pull Request, Hotfix | Проектная документация в папке [docs/08–12](docs) | [practice-7](https://github.com/coolguy22821/SPORTSHOP/tree/practice-7) |
+| **8** | Способы отладки ПО и модульное тестирование (unittest) | [docs/13_Debugging.md](docs/13_Debugging.md), [docs/14_Test_Report.md](docs/14_Test_Report.md) | [practice-8](https://github.com/coolguy22821/SPORTSHOP/tree/practice-8) |
+| **9** | Интеграция разработанных программных модулей и сборка | Компоненты [src/](src), [tests/test_integration.py](tests/test_integration.py), [build.py](build.py) | [practice-9](https://github.com/coolguy22821/SPORTSHOP/tree/practice-9) |
+| **10**| Документирование и выпуск финального релиза программного продукта | Корневые файлы, [docs/17–21](docs), [CHANGELOG.md](CHANGELOG.md) | [Релиз v1.0](https://github.com/coolguy22821/SPORTSHOP/releases/tag/v1.0) |
 
 ---
 

@@ -1,4 +1,4 @@
-# 19. Руководство разработчика
+﻿# 19. Руководство разработчика
 
 Документ для разработчика, который продолжит проект **СпортТовары** (SportShop): как настроить
 окружение, запустить тесты, добавить новую функцию, оформить ветку и Pull Request и собрать проект.
@@ -19,7 +19,7 @@
 ### 1.2. Получение кода
 
 ```bash
-git clone https://github.com/reflektpro/SportShop.git
+git clone https://github.com/coolguy22821/SPORTSHOP.git
 cd SportShop
 git checkout develop             # разработка ведётся в develop, не в main
 git config user.name  "Фамилия И.О."
@@ -179,3 +179,4 @@ git push origin vX.Y
 
 Проверить, что тег есть на сервере: `git ls-remote --tags origin` или страница
 *Releases/Tags* на GitHub.
+

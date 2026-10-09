@@ -1,7 +1,7 @@
-# 17. Справочник API (API Reference)
+﻿# 17. Справочник API (API Reference)
 
 Проект: **СпортТовары — система управления магазином** (SportShop), версия 1.0.  
-Автор: Лаптев В.И., группа 3ИП7-24.
+Автор: Исаев Е.А., группа 3ИП7-24.
 
 Описаны все публичные функции пакета `src` (функции, имя которых начинается с `_`, внутренние и не описываются). Для каждой функции приведены назначение, параметры, возвращаемое значение, пример и исключения. Примеры выполнены из корня проекта; вывод под примером — реальный результат запуска (в примерах, где нужен каталог, он предварительно загружен: `products = load_products('data/products.json')`; `TMP` — временная папка).
 
@@ -26,7 +26,7 @@
 
 **Позиция корзины**: `{"id": 1, "name": "Кроссовки RunFast", "size": 40, "price": 8990, "quantity": 2}`.
 
-**Заказ** (`data/orders.json`): `{"id": 1, "client": "Лаптев В.И.", "date": "2026-10-09 10:00", "items": [позиции], "total": 17980}`.
+**Заказ** (`data/orders.json`): `{"id": 1, "client": "Исаев Е.А.", "date": "2026-10-09 10:00", "items": [позиции], "total": 17980}`.
 
 ## Модуль `src.catalog`
 
@@ -460,14 +460,14 @@ from src.cart import add_to_cart
 from src.orders import create_order
 cart = []
 add_to_cart(cart, products, 2, 5, 2)
-order = create_order(cart, 'Лаптев В.И.', products, order_id=7)
+order = create_order(cart, 'Исаев Е.А.', products, order_id=7)
 print(order['id'], order['client'], order['total'], cart, products[1]['sizes'][5])
 ```
 
 Результат:
 
 ```text
-7 Лаптев В.И. 4980 [] 10
+7 Исаев Е.А. 4980 [] 10
 ```
 
 **Исключения:** `ValueError` — корзина пуста, не указано имя клиента или товара на складе не хватает.
@@ -490,7 +490,7 @@ print_order(order: dict) -> str
 
 ```python
 from src.orders import print_order
-order = {'id': 1, 'date': '2026-10-09 10:00', 'client': 'Лаптев В.И.',
+order = {'id': 1, 'date': '2026-10-09 10:00', 'client': 'Исаев Е.А.',
          'items': [{'name': 'Мяч Pro Match', 'size': 5, 'price': 2490, 'quantity': 2}], 'total': 4980}
 text = print_order(order)
 ```
@@ -498,7 +498,7 @@ text = print_order(order)
 Результат:
 
 ```text
-Заказ №1 от 2026-10-09 10:00, клиент: Лаптев В.И.
+Заказ №1 от 2026-10-09 10:00, клиент: Исаев Е.А.
   Мяч Pro Match (размер 5) × 2 = 4980 руб.
   Итого: 4980 руб.
 ```
@@ -876,3 +876,4 @@ print(save_cart([], TMP + '/cart.json').read_text(encoding='utf-8'))
 ```
 
 **Исключения:** `OSError` — нет прав на запись.
+
