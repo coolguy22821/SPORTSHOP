@@ -1,137 +1,177 @@
-# СпортТовары — система управления магазином
+# SportShop — Система управления магазином
 
 [![version](https://img.shields.io/badge/version-1.0-blue)](https://github.com/reflektpro/SportShop/releases/tag/v1.0)
 ![python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![tests](https://img.shields.io/badge/tests-52%20passed-brightgreen)
 
-## Описание
+## 📌 Описание проекта
 
-**СпортТовары** (SportShop) — консольное приложение для небольшого магазина спортивных товаров.
-Оно хранит каталог с остатками по размерам, ищет товары, ведёт корзину покупателя, оформляет
-заказы со списанием остатков со склада, сохраняет и загружает заказы в JSON и считает аналитику
-продаж (выручка, средний чек, хит продаж).
+**SportShop** — консольное приложение для автоматизации работы небольшого магазина спортивных товаров. 
 
-Проект выполнен в рамках учебной практики (УП.02 «Осуществление интеграции программных модулей»)
-и развивался от занятия к занятию: Scrum/Kanban (занятие 6) → Git Flow (7) → модульные тесты и
-отладка (8) → разделение на модули, интеграция и сборка (9) → документация и релиз v1.0 (10).
+**Ключевой функционал:**
+* Управление каталогом товаров с контролем остатков по размерам
+* Интеллектуальный поиск по ключевым словам и ценовым фильтрам
+* Ведение активной корзины покупателя
+* Оформление заказов с автоматическим списанием остатков со склада
+* Сохранение и загрузка истории заказов через файлы JSON
+* Аналитический модуль (расчет общей выручки, среднего чека, определение хита продаж)
 
-## Требования
+Проект выполнен в рамках учебной практики **УП.02 «Осуществление интеграции программных модулей»**. Разработка велась итеративно от занятия к занятию, охватывая методологии Scrum/Kanban, работу по Git Flow, модульное тестирование, интеграцию компонентов и финальную сборку релиза.
 
-- Python **3.10+** (проверено на Python 3.13);
-- внешних зависимостей нет — только стандартная библиотека;
-- SQLite в SportShop **не используется**: данные хранятся в JSON-файлах папки `data/`
-  (SQLite используется только в учебной ОС `my_os/`, занятия 1–2);
-- Git — для получения кода и работы с ветками.
+---
 
-## Установка
+## 💻 Технические требования
+
+* **Python 3.10+** (протестировано на стабильной версии Python 3.13)
+* **Зависимости:** внешние библиотеки не требуются (используется только встроенный функционал Python SDK)
+* **База данных:** SQLite в основном приложении **не используется** — все данные хранятся и обрабатываются в легковесных JSON-файлах внутри директории `data/` *(SQLite применяется только в рамках лабораторного модуля учебной ОС `my_os/`)*
+* **Система контроля версий:** Git (для развертывания проекта и навигации по веткам)
+
+---
+
+## 🚀 Установка и развертывание
+
+Для запуска проекта локально склонируйте репозиторий и перейдите в его рабочую директорию:
 
 ```bash
-git clone https://github.com/reflektpro/SportShop.git
+git clone https://github.com/coolguy22821/SPORTSHOP.git
 cd SportShop
-python --version          # должно быть 3.10 или новее
+python --version          # Убедитесь, что версия Python не ниже 3.10
 ```
 
-Чтобы получить ровно версию релиза: `git checkout v1.0`.
+> **Примечание:** Для переключения на стабильное состояние кода релиза v1.0 используйте команду:
+> `git checkout v1.0`
 
-## Использование
+---
+
+## 🛠️ Руководство по использованию (CLI)
 
 ```bash
-python main.py                                   # демонстрация: каталог → корзина → заказ → аналитика
-python main.py --help                            # список команд
-python main.py catalog                           # весь каталог
-python main.py search nike --max-price 9000      # поиск
-python main.py low-stock                         # товары с низким остатком
-python main.py cart add 1 40 2                   # положить в корзину: товар 1, размер 40, 2 шт.
-python main.py cart show                         # корзина
-python main.py checkout --client "Иванов И.И."   # оформить заказ
-python main.py orders                            # загрузить и показать заказы
-python main.py analytics                         # выручка, средний чек, хит продаж
+python main.py                                   # Сквозной демонстрационный сценарий (Каталог → Корзина → Заказ → Аналитика)
+python main.py --help                            # Вывод полного списка доступных команд
+python main.py catalog                           # Просмотр всего каталога товаров
+python main.py search nike --max-price 9000      # Поиск товаров по бренду и максимальной цене
+python main.py low-stock                         # Вывод списка товаров с низким остатком на складе
+python main.py cart add 1 40 2                   # Добавление в корзину: ID товара 1, размер 40, количество 2 шт.
+python main.py cart show                         # Просмотр текущей корзины покупателя
+python main.py checkout --client "Иванов И.И."   # Оформление заказа и проведение списаний со склада
+python main.py orders                            # Загрузка и отображение архива оформленных заказов
+python main.py analytics                         # Вывод бизнес-аналитики (выручка, средний чек, топ-товар)
 ```
 
-Команды `cart` и `checkout` изменяют файлы в `data/`. Для экспериментов укажите копию данных:
-`python main.py --data demo_data catalog`. Подробно — в [руководстве пользователя](docs/18_User_Guide.md).
+* Команды управления корзиной (`cart`) и оформления заказа (`checkout`) перезаписывают исходные файлы в каталоге `data/`.
+* Для проведения безопасных тестов без изменения основных данных используйте копию окружения: 
+  `python main.py --data demo_data catalog`.
+* Детальные сценарии описаны в документе [Руководство пользователя](docs/18_User_Guide.md).
 
-## Структура проекта
+---
 
-```
+## 📁 Структура проекта
+
+```bash
 SportShop/
-├── src/
-│   ├── __init__.py
-│   ├── catalog.py      # каталог: поиск, остатки, статистика
-│   ├── cart.py         # корзина покупателя
-│   ├── orders.py       # оформление, вывод, сохранение и загрузка заказов
-│   ├── analytics.py    # аналитика продаж
-│   └── storage.py      # чтение/запись JSON (товары, заказы, корзина)
-├── tests/              # 52 теста unittest: модульные, интеграционные, CLI
-├── docs/               # документация 03–21 (см. ниже)
-├── data/
-│   └── products.json   # каталог товаров
-├── my_os/              # StudyOS — учебная ОС (занятия 1–2)
-├── hr_agency/          # ПК «Кадровое агентство»: анализ, ТЗ, архитектура, ООП-модель (работы 1–4)
-├── ChudoObuv/          # основы Python, структуры данных «Чудо Обувь» (работа 5)
-├── main.py             # точка входа: демонстрация и консольные команды
-├── build.py            # сборка: Python, данные, тесты, запуск
-└── README.md
+├── src/                # Исходный код системы
+│   ├── init.py
+│   ├── catalog.py      # Модуль каталога: поиск, фильтрация, складские остатки
+│   ├── cart.py         # Модуль корзины покупателя
+│   ├── orders.py       # Оформление, экспорт/импорт и вывод заказов
+│   ├── analytics.py    # Модуль расчета аналитических показателей
+│   └── storage.py      # Уровень данных: чтение/запись JSON (продукты, корзина, заказы)
+├── tests/              # Набор из 52 автотестов unittest (модульные, интеграционные, CLI-тесты)
+├── docs/               # Техническая документация по проекту (работы 03–21)
+├── data/               # Файловое хранилище данных приложения
+│   └── products.json   # Файл каталога товаров (база данных)
+├── my_os/              # StudyOS — изолированная учебная ОС (практические работы 1–2)
+├── hr_agency/          # ПК «Кадровое агентство»: ТЗ, проектирование архитектуры, ООП-модель (работы 1–4)
+├── ChudoObuv/          # Программный модуль «Чудо Обувь» (практическая работа 5)
+├── main.py             # Главная точка входа: парсер CLI-команд и сквозная демонстрация
+├── build.py            # Автоматизированный скрипт сборки и верификации проекта
+└── README.md           # Документация верхнего уровня
 ```
 
-## Тестирование
+---
+
+## 🧪 Тестирование приложения
+
+Покрытие кода тестами реализовано на базе стандартного фреймворка `unittest`. Запуск тестов выполняется из корневой папки:
 
 ```bash
-python -m unittest discover -s tests        # все тесты
-python -m unittest discover -s tests -v     # с именами тестов
-python -m unittest tests.test_integration   # только интеграционные
+python -m unittest discover -s tests        # Запуск всего пула тестов
+python -m unittest discover -s tests -v     # Запуск в подробном режиме (с выводом имен тестов)
+python -m unittest tests.test_integration   # Запуск исключительно интеграционных сценариев
 ```
 
-## Сборка
+---
+
+## 📦 Автоматическая сборка проекта
+
+Для сборки и комплексной проверки готовности проекта к релизу запустите скрипт:
 
 ```bash
 python build.py
 ```
 
-Скрипт проверяет версию Python (≥ 3.10), наличие файлов и корректность `data/products.json`,
-запускает все тесты и приложение. При успехе печатает `СБОРКА УСПЕШНА` и возвращает код 0.
+**Алгоритм работы сборщика:**
+1. Проверяет версию интерпретатора Python на соответствие требованиям (≥ 3.10).
+2. Контролирует наличие критически важных файлов и валидирует структуру файла `data/products.json`.
+3. Запускает полный цикл автоматических тестов.
+4. При отсутствии ошибок выводит сообщение `СБОРКА УСПЕШНА` и завершает процесс с кодом возврата `0`.
 
-## Документация
+---
 
-| Файл | Содержание |
-|---|---|
-| [docs/17_API_Reference.md](docs/17_API_Reference.md) | справочник API: 26 публичных функций |
-| [docs/18_User_Guide.md](docs/18_User_Guide.md) | руководство пользователя (сценарии с командами) |
-| [docs/19_Developer_Guide.md](docs/19_Developer_Guide.md) | руководство разработчика (окружение, тесты, ветки, PR, сборка) |
-| [docs/20_Final_Test_Report.md](docs/20_Final_Test_Report.md) | итоговый отчёт о тестировании |
-| [docs/21_Presentation.md](docs/21_Presentation.md) | презентация проекта (7 слайдов) |
-| [docs/architecture.png](docs/architecture.png) | диаграмма архитектуры |
-| [CHANGELOG.md](CHANGELOG.md) | история версий |
+## 📄 Навигация по проектной документации
 
-## Практические работы
+| Документ | Назначение и содержание |
+| :--- | :--- |
+| [docs/17_API_Reference.md](docs/17_API_Reference.md) | **Справочник API:** подробное описание 26 публичных функций системы. |
+| [docs/18_User_Guide.md](docs/18_User_Guide.md) | **Руководство пользователя:** разбор пользовательских сценариев и работы с CLI. |
+| [docs/19_Developer_Guide.md](docs/19_Developer_Guide.md) | **Руководство разработчика:** настройка окружения, запуск тестов, Git Flow, CI/CD. |
+| [docs/20_Final_Test_Report.md](docs/20_Final_Test_Report.md) | **Итоговый отчёт о тестировании:** результаты выполнения и метрики покрытия. |
+| [docs/21_Presentation.md](docs/21_Presentation.md) | **Презентация проекта:** краткий разбор проделанной работы (7 слайдов). |
+| [docs/architecture.png](docs/architecture.png) | **Диаграмма архитектуры:** высокоуровневая визуализация связей модулей. |
+| [CHANGELOG.md](CHANGELOG.md) | **История версий:** лог изменений приложения от альфа-версии до v1.0. |
 
-Состояние кода на конец каждой работы зафиксировано тегом `practice-N`.
+---
 
-| № | Тема | Где смотреть | Код на момент сдачи |
-|---|---|---|---|
-| 1 | Границы ОС и нефункциональные требования (StudyOS); анализ предметной области «Кадровое агентство» | [my_os/docs/01_OS_Scope_and_NFR.md](my_os/docs/01_OS_Scope_and_NFR.md), [my_os/src](my_os/src); [hr_agency/docs/01_Domain_Analysis.md](hr_agency/docs/01_Domain_Analysis.md) | [my_os/](my_os), [hr_agency/](hr_agency) |
-| 2 | Архитектура и API ядра (StudyOS) | [my_os/docs/02_OS_Architecture.md](my_os/docs/02_OS_Architecture.md), [диаграмма компонентов](my_os/docs/02_component_diagram.png), [syscalls.py](my_os/src/syscalls.py); ТЗ «Кадровое агентство» [hr_agency/docs/02_Technical_Specification.md](hr_agency/docs/02_Technical_Specification.md) | [my_os/](my_os), [hr_agency/](hr_agency) |
-| 3 | Построение архитектуры программного средства (эскизный и технический проект) | [hr_agency/docs/03_Sketch_Project.md](hr_agency/docs/03_Sketch_Project.md), [03_Technical_Project.md](hr_agency/docs/03_Technical_Project.md), [диаграммы](hr_agency/docs/diagrams) | [practice-3](https://github.com/reflektpro/SportShop/tree/practice-3) |
-| 4 | Объектно-ориентированное проектирование | [hr_agency/docs/04_OOP_Design.md](hr_agency/docs/04_OOP_Design.md), [agency.py](hr_agency/agency.py), [demo.py](hr_agency/demo.py), [tests](hr_agency/tests) | [practice-4](https://github.com/reflektpro/SportShop/tree/practice-4) |
-| 5 | Основы Python в VS Code, структуры данных «Чудо Обувь» | [ChudoObuv/main.py](ChudoObuv/main.py), [ChudoObuv/README.md](ChudoObuv/README.md) | [practice-5](https://github.com/reflektpro/SportShop/tree/practice-5) |
-| 6 | Agile/Scrum/Kanban: Backlog, Sprint, Kanban, Standup, Retro | [docs/03–07](docs) | [practice-6](https://github.com/reflektpro/SportShop/tree/practice-6) |
-| 7 | Git Flow, конфликты, Pull Request, Hotfix | [docs/08–12](docs) | [practice-7](https://github.com/reflektpro/SportShop/tree/practice-7) |
-| 8 | Отладка и модульное тестирование (unittest) | [docs/13_Debugging.md](docs/13_Debugging.md), [docs/14_Test_Report.md](docs/14_Test_Report.md) | [practice-8](https://github.com/reflektpro/SportShop/tree/practice-8) |
-| 9 | Интеграция модулей и сборка | [src/](src), [tests/test_integration.py](tests/test_integration.py), [build.py](build.py), [docs/15](docs/15_Integration_Errors.md), [docs/16](docs/16_Integration_Report.md) | [practice-9](https://github.com/reflektpro/SportShop/tree/practice-9) |
-| 10 | Документация приложения, итоговый проект, релиз v1.0 | README, [docs/17–21](docs), [CHANGELOG.md](CHANGELOG.md) | [practice-10](https://github.com/reflektpro/SportShop/tree/practice-10), релиз [v1.0](https://github.com/reflektpro/SportShop/releases/tag/v1.0) |
+## 🎓 История выполнения практических работ
 
-Ветки по Git Flow: `main` — релизы, `develop` — разработка, `feature/*`, `hotfix/*`.
+Разработка велась строго в соответствии с этапами учебного плана. Состояние кодовой базы на момент сдачи каждого этапа зафиксировано соответствующими тегами `practice-N`.
 
-## StudyOS (my_os)
+Регламент работы с ветками по методологии **Git Flow**:
+* `main` — стабильные релизы программного продукта.
+* `develop` — основная ветка накопления разработанного функционала.
+* `feature/*` — изолированные ветки для разработки новых фич.
+* `hotfix/*` — ветки оперативного исправления багов.
+
+| № | Тема работы | Компоненты в репозитории | Ссылка на срез кода |
+| :-: | :--- | :--- | :--- |
+| **1** | Границы ОС и нефункциональные требования (StudyOS); анализ предметной области «Кадровое агентство» | [my_os/docs/01_OS_Scope_and_NFR.md](my_os/docs/01_OS_Scope_and_NFR.md), [hr_agency/docs/01_Domain_Analysis.md](hr_agency/docs/01_Domain_Analysis.md) | [Перейти](my_os/) |
+| **2** | Архитектура и API ядра (StudyOS), ТЗ «Кадровое агентство» | [my_os/docs/02_OS_Architecture.md](my_os/docs/02_OS_Architecture.md), [hr_agency/docs/02_Technical_Specification.md](hr_agency/docs/02_Technical_Specification.md) | [Перейти](my_os/) |
+| **3** | Построение архитектуры программного средства (эскизный и технический проект) | [hr_agency/docs/03_Sketch_Project.md](hr_agency/docs/03_Sketch_Project.md), [03_Technical_Project.md](hr_agency/docs/03_Technical_Project.md) | [practice-3](https://github.com/reflektpro/SportShop/tree/practice-3) |
+| **4** | Объектно-ориентированное проектирование программных модулей | [hr_agency/agency.py](hr_agency/agency.py), [hr_agency/demo.py](hr_agency/demo.py), тесты | [practice-4](https://github.com/reflektpro/SportShop/tree/practice-4) |
+| **5** | Основы разработки в Python в среде VS Code, структуры данных «Чудо Обувь» | [ChudoObuv/main.py](ChudoObuv/main.py), [ChudoObuv/README.md](ChudoObuv/README.md) | [practice-5](https://github.com/reflektpro/SportShop/tree/practice-5) |
+| **6** | Управление разработкой по Agile/Scrum/Kanban: Backlog, Спринты, Стендапы, Ретроспектива | Проектная документация в папке [docs/03–07](docs) | [practice-6](https://github.com/reflektpro/SportShop/tree/practice-6) |
+| **7** | Работа в команде по Git Flow, разрешение конфликтов слияния, Pull Request, Hotfix | Проектная документация в папке [docs/08–12](docs) | [practice-7](https://github.com/reflektpro/SportShop/tree/practice-7) |
+| **8** | Способы отладки ПО и модульное тестирование (unittest) | [docs/13_Debugging.md](docs/13_Debugging.md), [docs/14_Test_Report.md](docs/14_Test_Report.md) | [practice-8](https://github.com/reflektpro/SportShop/tree/practice-8) |
+| **9** | Интеграция разработанных программных модулей и сборка | Компоненты [src/](src), [tests/test_integration.py](tests/test_integration.py), [build.py](build.py) | [practice-9](https://github.com/reflektpro/SportShop/tree/practice-9) |
+| **10**| Документирование и выпуск финального релиза программного продукта | Корневые файлы, [docs/17–21](docs), [CHANGELOG.md](CHANGELOG.md) | [Релиз v1.0](https://github.com/reflektpro/SportShop/releases/tag/v1.0) |
+
+---
+
+## 🖥️ Модуль StudyOS (my_os)
+
+Для запуска и проверки работы встроенной консольной учебной операционной системы перейдите в соответствующий каталог:
 
 ```bash
 cd my_os
-python src/db.py         # создать базу
-python -m src.shell      # оболочка: help, echo, users, whoami, login, create, ls, ps, exit
+python src/db.py         # Инициализация и создание структуры базы данных
+python -m src.shell      # Запуск интерактивной командной оболочки системы
 ```
+*Доступные команды внутри оболочки:* `help`, `echo`, `users`, `whoami`, `login`, `create`, `ls`, `ps`, `exit`.
 
-## Авторы
+---
 
-- **Лаптев Василий Иванович** (Лаптев В.И.), группа 3ИП7-24 — разработка, тестирование, документация.
+## 👤 Автор проекта
 
-Учебный проект, 2026.
+* **Исаев Евгений Александрович** (Исаев Е.А.)
+* Студент группы **3ИП7-24**
