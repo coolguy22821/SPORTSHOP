@@ -1,0 +1,9 @@
+orders.json
+data/orders.json
+data/test_orders.json
+__pycache__/
+*.pyc
+cart.json
+data/cart.json
+demo_data/
+hr_agency/selections.csv
